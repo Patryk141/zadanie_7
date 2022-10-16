@@ -1,20 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-        try{
-            if(args[0].charAt(0) == 's'){
-                System.out.println("The Field: " + Shapes.Square.Calculate_field(Double.parseDouble(args[1])));
-                System.out.println("The Perimeter: " + Shapes.Square.Calculate_perimeter(Double.parseDouble(args[1])));
+        try {
+            if (args[0].charAt(0) == 'c') {
+                Circle circle = new Circle();
+                circle.setRadius(Double.parseDouble(args[1]));
+                System.out.println("Pole " + circle.Calculate_field());
+                System.out.println("Obw " + circle.Calculate_perimeter());
+            } else if (args[0].charAt(0) == 's') {
+                Square square = new Square();
+                square.setSide(Double.parseDouble(args[1]));
+                System.out.println("Pole " + square.Calculate_field());
+                System.out.println("Obw " + square.Calculate_perimeter());
             }
-            else if(args[0].charAt(0) == 'c'){
-                System.out.println("The Field: " + Shapes.Circle.Calculate_field(Double.parseDouble(args[1])));
-                System.out.println("The Perimeter: " + Shapes.Circle.Calculate_perimeter(Double.parseDouble(args[1])));
-            }
-            else{
-                throw new Exception();
-            }
-        }
-        catch (Exception ex){
-            System.out.println("Incorrect data");
+        }catch (Exception ex) {
+            System.out.println("Incorect data");
         }
     }
 }
